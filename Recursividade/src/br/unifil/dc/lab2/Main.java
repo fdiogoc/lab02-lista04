@@ -1,5 +1,8 @@
 package br.unifil.dc.lab2;
 
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -8,14 +11,39 @@ public class Main {
         testeFibonacci();
     }
 
+    private static void testeSomatorio() {
+        System.out.println("Queria 10, tive " + somatorio(Arrays.asList(0,1,2,3,4)));
+    }
+
+    private static int somatorio(List<Integer> valores) {
+        throw new RuntimeException("A ser implementado pelo estagiário.");
+    }
+
+
     private static void testeFibonacci() {
         System.out.println("Esperava 1, e tive: " + fibRecursivo(1));
         System.out.println("Esperava 1, e tive: " + fibRecursivo(2));
         System.out.println("Esperava 55, e tive: " + fibRecursivo(10));
+
+        for (int i = 1; i <= 50; i++) {
+            System.out.println(i + ", " + fibonacci(i));
+        }
+    }
+
+    public static int fibRecursivoTernario(int n) {
+        return (n < 3)
+                ? 1
+                : fibRecursivoTernario(n - 1) + fibRecursivoTernario(n - 2);
+    }
+
+    public static int fibRecursivo(int n) {
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+        return fibRecursivo(n - 1) + fibRecursivo(n - 2);
     }
 
 
-    public static int fibonacci(int n) {
+    public static int fibonacci(BigInteger n) {
         int f0 = 0;
         int f1 = 1;
         for (int i = n; i > 0; i--) {
@@ -24,14 +52,6 @@ public class Main {
             f1 = fNovo;
         }
         return f0;
-    }
-
-    public static int fibRecursivo(int n) {
-        if (n == 1 || n == 2) {
-            return 1;
-        } else {
-            return fibRecursivo(n-1) + fibRecursivo(n-2);
-        }
     }
 
 
