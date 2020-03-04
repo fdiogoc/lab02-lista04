@@ -8,10 +8,31 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        testeFibonacci();
+        System.out.println("Espero 24, tive " + fatorial(4));
     }
 
-    private static void testeSomatorio() {
+    public static int fatorial(int n) {
+        // Casos base
+        if (n == 0) return 1;
+        // Casos de divisão recursiva
+        return n * fatorial(n-1);
+    }
+
+    private static void testeSomatorioArranjos() {
+        int[] valores = { 1,2,3,4,5 };
+        System.out.println("Esperava 15, tive " + somatorio(valores));
+    }
+
+    public static int somatorio(int[] valores) {
+        return somatorio(valores, 0);
+    }
+    private static int somatorio(int[] valores, int i) {
+        return i >= valores.length
+                ? 0
+                : valores[i] + somatorio(valores, i+1);
+    }
+
+    private static void testeSomatorioLista() {
         System.out.println("Queria 10, tive " + somatorio(Arrays.asList(0,1,2,3,4)));
     }
 
@@ -43,7 +64,7 @@ public class Main {
     }
 
 
-    public static int fibonacci(BigInteger n) {
+    public static int fibonacci(int n) {
         int f0 = 0;
         int f1 = 1;
         for (int i = n; i > 0; i--) {
