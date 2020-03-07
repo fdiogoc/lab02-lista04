@@ -8,32 +8,86 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        int[] valores = { 1,2,3,4,5 };
+        System.out.println("Espero true, tive " + existeRecursivo(3,valores));
+        System.out.println("Espero true, tive " + existeRecursivo(5,valores));
+        System.out.println("Espero false, tive " + existeRecursivo(0,valores));
+
+        System.out.println("Espero true, tive " + existe(3,valores));
+        System.out.println("Espero true, tive " + existe(5,valores));
+        System.out.println("Espero false, tive " + existe(0,valores));
+    }
+
+    /**
+     * Verifica se a chave existe em valores.
+     *
+     * Atenção! Essa é uma implementação recursiva.
+     *
+     * @param chave Valor a ser buscado.
+     * @param valores Arranjo onde chave será buscada.
+     * @return true se chave estiver em valores, false caso contrário.
+     */
+    public static boolean existeRecursivo(int chave, int[] valores) {
+        return existeRecursivo(chave, valores, 0);
+    }
+    private static boolean existeRecursivo(int chave, int[] valores, int i) {
+        if (i >= valores.length) return false;
+        if (chave == valores[i]) return true;
+        return existeRecursivo(chave, valores, i+1);
+    }
+
+    public static boolean existe(int chave, int[] valores) {
+        // Para-passo
+        /*for (int i = 0; i < valores.length; i++) {
+            int valor = valores[i];
+            if (valor == chave) return true;
+        }*/
+
+        // Para cada (for-each), semanticamente, a mesma coisa que o
+        // 'for' anterior.
+        for (int valor : valores) {
+            if (valor == chave) return true;
+        }
+        return false;
+    }
+
+    private static void testeFatorial() {
         System.out.println("Espero 24, tive " + fatorial(4));
     }
 
+    /**
+     * Resolve a função fatorial para n.
+     *
+     * Atenção! O overflow acontece rapidamente!
+     *
+     * Pré-condição: n não pode ser negativo. Risco de StackOverflowException.
+     * @param n Valor do fatorial a ser calculado. Deve respeitar n ≥ 0.
+     * @return Valor fatorial de n.
+     */
     public static int fatorial(int n) {
         // Casos base
         if (n == 0) return 1;
         // Casos de divisão recursiva
-        return n * fatorial(n-1);
+        return n * fatorial(n - 1);
     }
 
     private static void testeSomatorioArranjos() {
-        int[] valores = { 1,2,3,4,5 };
+        int[] valores = {1, 2, 3, 4, 5};
         System.out.println("Esperava 15, tive " + somatorio(valores));
     }
 
     public static int somatorio(int[] valores) {
         return somatorio(valores, 0);
     }
+
     private static int somatorio(int[] valores, int i) {
         return i >= valores.length
                 ? 0
-                : valores[i] + somatorio(valores, i+1);
+                : valores[i] + somatorio(valores, i + 1);
     }
 
     private static void testeSomatorioLista() {
-        System.out.println("Queria 10, tive " + somatorio(Arrays.asList(0,1,2,3,4)));
+        System.out.println("Queria 10, tive " + somatorio(Arrays.asList(0, 1, 2, 3, 4)));
     }
 
     private static int somatorio(List<Integer> valores) {
@@ -74,48 +128,4 @@ public class Main {
         }
         return f0;
     }
-
-
-
-
-    private static void testeTiposCompostosReferencia() {
-        IntegerLab2 investimentos = new IntegerLab2(1000);
-        renderDuasVezesLab2(investimentos);
-        System.out.println("Você agora tem " + investimentos.getValor());
-    }
-
-    public static void renderDuasVezesLab2(IntegerLab2 investimentos) {
-        investimentos.setValor(investimentos.getValor()* 2);
-    }
-
-
-
-    private static void testeInvestimentosPrimitivo() {
-        int investimentos = 1000;
-        renderDuasVezes(investimentos);
-        System.out.println("Total após investimento é " + investimentos);
-    }
-
-    public static int renderDuasVezes(int investimentos) {
-        investimentos = investimentos * 2;
-        return investimentos;
-    }
-}
-
-
-
-class IntegerLab2 {
-    public IntegerLab2(int valor) {
-        this.valor = valor;
-    }
-
-    public int getValor() {
-        return valor;
-    }
-
-    public void setValor(int valor) {
-        this.valor = valor;
-    }
-
-    private int valor;
 }
