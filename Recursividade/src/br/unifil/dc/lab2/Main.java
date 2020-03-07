@@ -3,7 +3,6 @@ package br.unifil.dc.lab2;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -60,11 +59,33 @@ public class Main {
      *
      * Atenção! O overflow acontece rapidamente!
      *
-     * Pré-condição: n não pode ser negativo. Risco de StackOverflowException.
+     * Pré-condição: n não pode ser negativo, é barrado com assert.
      * @param n Valor do fatorial a ser calculado. Deve respeitar n ≥ 0.
      * @return Valor fatorial de n.
      */
-    public static int fatorial(int n) {
+    public static BigInteger fatorialSemOverflow(BigInteger n) {
+        throw new RuntimeException("A aula acabou e não implementei. My bad!");
+        /*assert n >= 0 : "Não existe fatorial de negativos.";
+
+        // Casos base
+        if (n == 0) return 1;
+        // Casos de divisão recursiva
+        return n * fatorial(n - 1);*/
+    }
+
+    /**
+     * Resolve a função fatorial para n.
+     * <br><br>
+     * Atenção! O overflow acontece rapidamente! Recomenda-se a
+     * utilização do método fatorialSemOverflow ao invés desse.
+     * <br><br>
+     * Pré-condição: n não pode ser negativo, é barrado com assert.
+     * @param n Valor do fatorial a ser calculado. Deve respeitar n ≥ 0.
+     * @return Valor fatorial de n.
+     */
+    public static long fatorial(long n) {
+        assert n >= 0 : "Não existe fatorial de negativos.";
+
         // Casos base
         if (n == 0) return 1;
         // Casos de divisão recursiva
