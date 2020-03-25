@@ -7,12 +7,69 @@ import java.util.Optional;
 public class Main {
 
     public static void main(String[] args) {
-        List<Integer> listaTeste = Arrays.asList(4,2,3,4,5,4);
-        System.out.println("Esperava 0, tive " + pesquisar(listaTeste, 4));
-        System.out.println("Esperava empty, tive " + pesquisar(listaTeste, 10));
 
-        System.out.println("Esperava 0, tive " + pesquisarSentinela(listaTeste, 4));
-        System.out.println("Esperava empty, tive " + pesquisarSentinela(listaTeste, 10));
+    }
+
+    /**
+     * Encontra o índice de uma das ocorrências de chave em lista.
+     *
+     * O algoritmo só funciona se a lista estiver pré-ordenada crescentemente.
+     * Se essa condição não for cumprida, o resultado é indefinido.
+     *
+     * @param lista A lista onde será feita a pesquisa.
+     * @param chave A chave a ser encontrada.
+     * @return O índice de chave, se existir, senão Optional.empty.
+     */
+    public static Optional<Integer> pesquisarBinario(List<Integer> lista, Integer chave) {
+        assert isOrdenada(lista) : "Esse método só funciona com listas ordenadas.";
+
+        do {
+            int meio = lista.size() / 2;
+            int acumulaMeio = 0;
+            if (lista.get(meio) == chave)
+                return Optional.of(meio + acumulaMeio);
+            else if (lista.get(meio) > chave)
+                lista = lista.subList(0, meio);
+            else if (lista.get(meio) < chave) {
+                lista = lista.subList(meio + 1, lista.size());
+                acumulaMeio += lista.size()/2;
+            }
+        } while(lista.size() > 0);
+
+        return Optional.empty();
+    }
+
+    /**
+     * Encontra o índice de uma das ocorrências de chave em lista.
+     *
+     * O algoritmo só funciona se a lista estiver pré-ordenada crescentemente.
+     * Se essa condição não for cumprida, o resultado é indefinido.
+     *
+     * @param lista A lista onde será feita a pesquisa.
+     * @param chave A chave a ser encontrada.
+     * @return O índice de chave, se existir, senão Optional.empty.
+     */
+    public static Optional<Integer> pesquisarBinarioRecursiva(List<Integer> lista, Integer chave) {
+
+    }
+
+    /**
+     * Encontra o índice de uma das ocorrências de chave em lista.
+     *
+     * O algoritmo só funciona se a lista estiver pré-ordenada crescentemente.
+     * Se essa condição não for cumprida, o resultado é indefinido.
+     *
+     * @param lista A lista onde será feita a pesquisa.
+     * @param chave A chave a ser encontrada.
+     * @return O índice de chave, se existir, senão Optional.empty.
+     */
+    public static Optional<Integer> pesquisarBinarioArranjo(int[] lista, int chave) {
+
+    }
+
+    private static boolean isOrdenada(List<Integer> lista) {
+        // Aluno, por favor, corrija esse código hediondo. Muito obrigado!
+        return true;
     }
 
     /**
@@ -21,7 +78,7 @@ public class Main {
      *
      * @param lista A lista onde será feita a pesquisa.
      * @param chave A chave a ser encontrada.
-     * @return O índice de chave, se existir, senão -1.
+     * @return O índice de chave, se existir, senão Optional.empty.
      */
     public static Optional<Integer> pesquisar(List<Integer> lista, Integer chave) {
         for (int i = 0; i < lista.size(); i++)
