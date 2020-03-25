@@ -19,7 +19,7 @@ public class MainTests {
     public static void testarPesquisasBinarias() {
         System.out.println("Espero 2 mas obtive " + Main.pesquisarBinario(listaOrdenada, 4));
         System.out.println("Espero 5 mas obtive " + Main.pesquisarBinario(listaOrdenada, 9));
-        System.out.println("Espero "+ (teste.size()-1) +" mas obtive " + Main.pesquisarBinario(listaOrdenada, 16));
+        System.out.println("Espero "+ (listaOrdenada.size()-1) +" mas obtive " + Main.pesquisarBinario(listaOrdenada, 16));
         System.out.println("Espero empty mas obtive " + Main.pesquisarBinario(listaOrdenada, 20));
         System.out.println("Espero empty mas obtive " + Main.pesquisarBinario(listaOrdenada, -3));
     }

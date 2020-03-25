@@ -7,7 +7,7 @@ import java.util.Optional;
 public class Main {
 
     public static void main(String[] args) {
-
+        MainTests.testarPesquisasBinarias();
     }
 
     /**
@@ -23,16 +23,17 @@ public class Main {
     public static Optional<Integer> pesquisarBinario(List<Integer> lista, Integer chave) {
         assert isOrdenada(lista) : "Esse método só funciona com listas ordenadas.";
 
+        int acumulaMeio = 0;
         do {
             int meio = lista.size() / 2;
-            int acumulaMeio = 0;
+
             if (lista.get(meio) == chave)
                 return Optional.of(meio + acumulaMeio);
             else if (lista.get(meio) > chave)
                 lista = lista.subList(0, meio);
             else if (lista.get(meio) < chave) {
+                acumulaMeio += meio + 1;
                 lista = lista.subList(meio + 1, lista.size());
-                acumulaMeio += lista.size()/2;
             }
         } while(lista.size() > 0);
 
@@ -50,7 +51,7 @@ public class Main {
      * @return O índice de chave, se existir, senão Optional.empty.
      */
     public static Optional<Integer> pesquisarBinarioRecursiva(List<Integer> lista, Integer chave) {
-
+        throw new RuntimeException("Aluno não implementou.");
     }
 
     /**
@@ -64,7 +65,7 @@ public class Main {
      * @return O índice de chave, se existir, senão Optional.empty.
      */
     public static Optional<Integer> pesquisarBinarioArranjo(int[] lista, int chave) {
-
+        throw new RuntimeException("Aluno não implementou.");
     }
 
     private static boolean isOrdenada(List<Integer> lista) {
