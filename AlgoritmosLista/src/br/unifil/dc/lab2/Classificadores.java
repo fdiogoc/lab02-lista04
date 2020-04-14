@@ -75,7 +75,7 @@ public class Classificadores {
     }
 
     public static String prettyPrintMedicoes() {
-        return "Houve " + comparacoes + " comparacoes, e " + operacaoRwMemoria + " operacoes RW em memoria.";
+        return comparacoes + " COMP, e " + operacaoRwMemoria + " RW";
     }
 
 

@@ -4,63 +4,70 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ClassificadoresTests {
-    private static List<Integer> preordenada = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
-    private static List<Integer> totalDesordenada = Arrays.asList(10,9,8,7,6,5,4,3,2,1);
-    private static List<Integer> apenasDesordenada = Arrays.asList(5, 100, 9, 28, 23, 70, 53, 89, 1, 75);
+    
 
-    public static void testarInsertionsort() {
+    public static void testarInsertionsort(int tamanho) {
+       
+        System.out.println("ORDENADA - TAMANHO: "+ tamanho);
+        List<Integer> preordenada = Geradores.listaOrdenada(tamanho);
         Classificadores.insertionsort(preordenada);
-        System.out.println("Lista deve estar ordenada: " + preordenada);
+        //System.out.println("Lista deve estar ordenada: " + preordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
 
+        System.out.println("ORDENADA REV - TAMANHO: "+ tamanho);
+        List<Integer> totalDesordenada = Geradores.listaOrdenadaRev(tamanho);
         Classificadores.insertionsort(totalDesordenada);
-        System.out.println("Lista deve estar ordenada: " + totalDesordenada);
+        //System.out.println("Lista deve estar ordenada: " + totalDesordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
 
+        System.out.println("SORTEADA - TAMANHO: "+ tamanho);
+        List<Integer> apenasDesordenada = Geradores.listaSorteados(tamanho);
         Classificadores.insertionsort(apenasDesordenada);
-        System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
+        //System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
     }
 
-    public static void testarBubblesort() {
+    public static void testarBubblesort(int tamanho) {
+
+        System.out.println("ORDENADA - TAMANHO: "+ tamanho);
+        List<Integer> preordenada = Geradores.listaOrdenada(tamanho);
         Classificadores.bubblesort(preordenada);
-        System.out.println("Lista deve estar ordenada: " + preordenada);
+        //System.out.println("Lista deve estar ordenada: " + preordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
 
+        System.out.println("ORDENADA REV - TAMANHO: "+ tamanho);
+        List<Integer> totalDesordenada = Geradores.listaOrdenadaRev(tamanho);
         Classificadores.bubblesort(totalDesordenada);
-        System.out.println("Lista deve estar ordenada: " + totalDesordenada);
+        //System.out.println("Lista deve estar ordenada: " + totalDesordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
 
+        System.out.println("SORTEADA - TAMANHO: "+ tamanho);
+        List<Integer> apenasDesordenada = Geradores.listaSorteados(tamanho);
         Classificadores.bubblesort(apenasDesordenada);
-        System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
+        //System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
     }
 
-    public static void testarSelectionsort() {
+    public static void testarSelectionsort(int tamanho) {
+
+        System.out.println("ORDENADA - TAMANHO: "+ tamanho);
+        List<Integer> preordenada = Geradores.listaOrdenada(tamanho);
         Classificadores.selectionsort(preordenada);
-        System.out.println("Lista deve estar ordenada: " + preordenada);
+        //System.out.println("Lista deve estar ordenada: " + preordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
 
+        System.out.println("ORDENADA REV - TAMANHO: "+ tamanho);
+        List<Integer> totalDesordenada = Geradores.listaOrdenadaRev(tamanho);
         Classificadores.selectionsort(totalDesordenada);
-        System.out.println("Lista deve estar ordenada: " + totalDesordenada);
+        //System.out.println("Lista deve estar ordenada: " + totalDesordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
 
+        System.out.println("SORTEADA - TAMANHO: "+ tamanho);
+        List<Integer> apenasDesordenada = Geradores.listaSorteados(tamanho);
         Classificadores.selectionsort(apenasDesordenada);
-        System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
+        //System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
         System.out.println(Classificadores.prettyPrintMedicoes());
     }
 
-    public static void testarBogosort() {
-        Classificadores.bogosort(preordenada);
-        System.out.println("Lista deve estar ordenada: " + preordenada);
-        System.out.println(Classificadores.prettyPrintMedicoes());
 
-        Classificadores.bogosort(totalDesordenada);
-        System.out.println("Lista deve estar ordenada: " + totalDesordenada);
-        System.out.println(Classificadores.prettyPrintMedicoes());
-
-        Classificadores.bogosort(apenasDesordenada);
-        System.out.println("Lista deve estar ordenada: " + apenasDesordenada);
-        System.out.println(Classificadores.prettyPrintMedicoes());
-    }
 }
